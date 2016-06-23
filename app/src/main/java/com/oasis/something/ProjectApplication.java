@@ -6,6 +6,7 @@ import android.os.Environment;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -34,6 +35,9 @@ public class ProjectApplication extends Application {
         super.onCreate();
         //创建默认的ImageLoader配置参数
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(this)
+                .memoryCache(new LruMemoryCache(4 * 1024 * 1024))
+                .memoryCacheSize(4 * 1024 * 1024)
+                .memoryCacheSizePercentage(12)
                 .diskCache(new UnlimitedDiscCache(new File(imagePath)))
                 .denyCacheImageMultipleSizesInMemory()
                 .imageDownloader(new BaseImageDownloader(this, 5 * 1000, 30 * 1000)) // connectTimeout (5 s), readTimeout (30 s)超时时间

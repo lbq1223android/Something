@@ -8,11 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.oasis.something.util.Images;
 import com.oasis.something.util.LogUtil;
 
@@ -43,13 +44,15 @@ public class LoadImage extends BaseActivity {
                 .showImageOnLoading(R.mipmap.preview_card_pic_loading)
                 .showImageOnFail(R.mipmap.preview_card_pic_loadfail)
                 .bitmapConfig(Bitmap.Config.RGB_565)
-                .displayer(new RoundedBitmapDisplayer(5))//圆角
-                //.displayer(new FadeInBitmapDisplayer(1000))
+                        .cacheInMemory(true)
+                //.displayer(new RoundedBitmapDisplayer(5))//圆角
+                .displayer(new FadeInBitmapDisplayer(500))
                 .cacheOnDisk(true)
                 .build();
 
 
         mGridView = (GridView) findViewById(R.id.gridView);
+        //mGridView.setOnScrollListener(new PauseOnScrollListener(ImageLoader.getInstance(),true,true));
         mGridView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -73,9 +76,18 @@ public class LoadImage extends BaseActivity {
                     convertView = LoadImage.this.getLayoutInflater().inflate(
                             R.layout.item_fragment_list_imgs, parent, false);
                 }
-                ImageView imageview = (ImageView) convertView
+                final ImageView imageview = (ImageView) convertView
                         .findViewById(R.id.id_img);
-                ImageLoader.getInstance().displayImage(imgs[position],imageview,imageOptions);
+                //ImageLoader.getInstance().displayImage(imgs[position], imageview, imageOptions);
+                //displayImage(), loadImage(),loadImageSync()，loadImageSync()  这几个方法是同步的
+                ImageLoader.getInstance().loadImage(imgs[position],imageOptions,new SimpleImageLoadingListener(){
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                        super.onLoadingComplete(imageUri, view, loadedImage);
+                        imageview.setImageBitmap(loadedImage);
+                    }
+                });
+
                 return convertView;
             }
         });
