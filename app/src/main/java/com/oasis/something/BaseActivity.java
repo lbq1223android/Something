@@ -41,10 +41,10 @@ public class BaseActivity extends Activity {
         registerReceiver(mExitRecevier, new IntentFilter("android.action.exit"));
         context = this ;
 
-        imageOptions = new DisplayImageOptions.Builder()
+        /*imageOptions = new DisplayImageOptions.Builder()
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .cacheInMemory(false)
-                .build();
+                .build();*/
 
 
     }
