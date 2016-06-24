@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoadImage"></activity>
+        <activity android:name=".LoadImage" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.CustomDialogToast" android:screenOrientation="portrait"></activity>
 
     </application>
 

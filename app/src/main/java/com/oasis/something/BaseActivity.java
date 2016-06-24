@@ -11,10 +11,15 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+import org.xutils.x;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.oasis.something.util.LogUtil;
 
+
+import org.xutils.common.Callback;
+import org.xutils.http.HttpMethod;
+import org.xutils.http.RequestParams;
 
 import java.lang.reflect.Type;
 
@@ -35,7 +40,7 @@ public class BaseActivity extends Activity {
 
     protected DisplayImageOptions imageOptions ;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LogUtil.d(TAG, this.getClass().getSimpleName() + " onCreate() invoked!!");
         registerReceiver(mExitRecevier, new IntentFilter("android.action.exit"));
@@ -45,6 +50,38 @@ public class BaseActivity extends Activity {
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .cacheInMemory(false)
                 .build();*/
+
+
+    }
+
+
+
+    public void loadData(RequestParams requestParams , final HttpCallBack callBack){
+
+
+
+
+        x.http().request(HttpMethod.POST, requestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                callBack.onSuccess(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                callBack.onError(ex,isOnCallback);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+                callBack.onCancelled(cex);
+            }
+
+            @Override
+            public void onFinished() {
+                callBack.onFinished();
+            }
+        }) ;
 
 
     }

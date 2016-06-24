@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.os.PersistableBundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +17,57 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oasis.something.bean.FuctionBean;
+import com.oasis.something.ui.CustomDialogToast;
+import com.oasis.something.util.L;
+import com.orhanobut.logger.Logger;
+
+import org.xutils.common.Callback;
+import org.xutils.http.HttpMethod;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity{
+public class MainActivity extends BaseActivity{
 
     ListView mListView;
     ArrayList<FuctionBean> mList = new ArrayList<>() ;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         setColor(this, getResources().getColor(R.color.app_basecolor));
 
-        mList.add(new FuctionBean("加载图片",LoadImage.class)) ;
+        mList.add(new FuctionBean("加载图片", LoadImage.class)) ;
+        mList.add(new FuctionBean("自定义dialog", CustomDialogToast.class)) ;
+
+        RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;
+        loadData(requestParams, new HttpCallBack() {
+            @Override
+            public void onSuccess(String result) {
+
+                L.json(TAG,result);
+            }
+
+            @Override
+            public void onFinished() {
+                Logger.e("onFinished");
+            }
+
+            @Override
+            public void onCancelled(Callback.CancelledException cex) {
+                Logger.e("onFinished");
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Logger.e("onFinished",ex);
+            }
+        });
+
+
+       // Logger.e("出错了");
 
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setAdapter(new BaseAdapter() {

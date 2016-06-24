@@ -11,6 +11,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.orhanobut.logger.Logger;
+
+import org.xutils.x;
 
 import java.io.File;
 
@@ -33,6 +36,11 @@ public class ProjectApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Logger.init(Constants.logtag) ;
+        x.Ext.init(this);
+       // x.Ext.setDebug(BuildConfig.DEBUG);
+
         //创建默认的ImageLoader配置参数
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(this)
                 .memoryCache(new LruMemoryCache(4 * 1024 * 1024))
