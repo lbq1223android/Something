@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
@@ -78,15 +79,17 @@ public class LoadImage extends BaseActivity {
                 }
                 final ImageView imageview = (ImageView) convertView
                         .findViewById(R.id.id_img);
-                //ImageLoader.getInstance().displayImage(imgs[position], imageview, imageOptions);
+                ImageLoader.getInstance().displayImage(imgs[position], imageview, imageOptions);
                 //displayImage(), loadImage(),loadImageSync()，loadImageSync()  这几个方法是同步的
-                ImageLoader.getInstance().loadImage(imgs[position],imageOptions,new SimpleImageLoadingListener(){
+                /*ImageLoader.getInstance().loadImage(imgs[position],imageOptions,new SimpleImageLoadingListener(){
                     @Override
                     public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                         super.onLoadingComplete(imageUri, view, loadedImage);
                         imageview.setImageBitmap(loadedImage);
                     }
-                });
+                });*/
+
+                //Glide.with(context).load(imgs[position]).into(imageview) ;
 
                 return convertView;
             }

@@ -5,7 +5,7 @@ public class FuctionBean {
     public Class className ;
     public  FuctionBean(String funcionName,Class className){
         this.funcionName = funcionName ;
-        this.className = className ;
+        this.className = className ;   
     }
     public String getFuncionName() {
         return funcionName;
@@ -22,4 +22,8 @@ public class FuctionBean {
     public void setClassName(Class className) {
         this.className = className;
     }
+
+
+
+
 }
