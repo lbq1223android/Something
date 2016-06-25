@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.oasis.something.bean.FuctionBean;
 import com.oasis.something.ui.CustomDialogToast;
+import com.oasis.something.ui.ManyButton;
 import com.oasis.something.util.L;
 import com.orhanobut.logger.Logger;
 
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity{
 
         mList.add(new FuctionBean("加载图片", LoadImage.class)) ;
         mList.add(new FuctionBean("自定义dialog", CustomDialogToast.class)) ;
+        mList.add(new FuctionBean("各种Button", ManyButton.class)) ;
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;
         loadData(requestParams, new HttpCallBack() {

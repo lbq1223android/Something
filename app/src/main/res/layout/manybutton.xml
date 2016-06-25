@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tib="http://schemas.android.com/apk/res-auto"
+    xmlns:toggle="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <net.colindodd.toggleimagebutton.ToggleImageButton
+            android:id="@+id/imagebutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tib:tib_drawable_on="@mipmap/umeng_update_close_bg_tap.png"
+            tib:tib_drawable_off="@mipmap/umeng_update_close_bg_normal.png"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:checked="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+
+        <com.oasis.something.view.ToggleButton
+            android:layout_width="54dp"
+            toggle:onColor="#f00"
+            toggle:offColor="#ddd"
+            toggle:spotColor="#00f"
+            toggle:offBorderColor="#000"
+            toggle:borderWidth="1dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</LinearLayout>
