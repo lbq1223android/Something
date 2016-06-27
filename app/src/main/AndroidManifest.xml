@@ -28,6 +28,7 @@
         <activity android:name=".ui.ObserverScrollViewSample" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.SVG" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.Vector" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.RevealLayout" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

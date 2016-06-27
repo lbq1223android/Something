@@ -20,6 +20,7 @@ import com.oasis.something.bean.FuctionBean;
 import com.oasis.something.ui.CustomDialogToast;
 import com.oasis.something.ui.ManyButton;
 import com.oasis.something.ui.ObserverScrollViewSample;
+import com.oasis.something.ui.RevealLayout;
 import com.oasis.something.ui.SVG;
 import com.oasis.something.ui.Vector;
 import com.oasis.something.util.L;
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity{
         mList.add(new FuctionBean("ObserverScrollView", ObserverScrollViewSample.class)) ;
         mList.add(new FuctionBean("SVG", SVG.class)) ;
         mList.add(new FuctionBean("Vector", Vector.class)) ;
+        mList.add(new FuctionBean("RevealLayout", RevealLayout.class)) ;
 
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;
