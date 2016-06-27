@@ -10,6 +10,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
@@ -17,6 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -30,4 +32,8 @@ dependencies {
     compile 'org.xutils:xutils:3.3.36'
     compile 'com.orhanobut:dialogplus:1.11@aar'
     compile 'net.colindodd:toggleimagebutton:1.2'
+    compile 'com.github.ksoichiro:android-observablescrollview:1.5.2'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.jaredrummler:animated-svg-view:1.0.0'
+
 }

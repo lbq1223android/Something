@@ -19,6 +19,9 @@ import android.widget.TextView;
 import com.oasis.something.bean.FuctionBean;
 import com.oasis.something.ui.CustomDialogToast;
 import com.oasis.something.ui.ManyButton;
+import com.oasis.something.ui.ObserverScrollViewSample;
+import com.oasis.something.ui.SVG;
+import com.oasis.something.ui.Vector;
 import com.oasis.something.util.L;
 import com.orhanobut.logger.Logger;
 
@@ -43,6 +46,10 @@ public class MainActivity extends BaseActivity{
         mList.add(new FuctionBean("加载图片", LoadImage.class)) ;
         mList.add(new FuctionBean("自定义dialog", CustomDialogToast.class)) ;
         mList.add(new FuctionBean("各种Button", ManyButton.class)) ;
+        mList.add(new FuctionBean("ObserverScrollView", ObserverScrollViewSample.class)) ;
+        mList.add(new FuctionBean("SVG", SVG.class)) ;
+        mList.add(new FuctionBean("Vector", Vector.class)) ;
+
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;
         loadData(requestParams, new HttpCallBack() {
