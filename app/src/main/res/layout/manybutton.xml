@@ -13,8 +13,8 @@
             android:id="@+id/imagebutton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            tib:tib_drawable_on="@mipmap/umeng_update_close_bg_tap.png"
-            tib:tib_drawable_off="@mipmap/umeng_update_close_bg_normal.png"
+            tib:tib_drawable_on="@mipmap/umeng_update_close_bg_tap"
+            tib:tib_drawable_off="@mipmap/umeng_update_close_bg_normal"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:checked="false" />
