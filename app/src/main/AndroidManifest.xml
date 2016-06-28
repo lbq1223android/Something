@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".ProjectApplication"
         android:allowBackup="true"
@@ -29,6 +32,11 @@
         <activity android:name=".ui.SVG" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.Vector" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.RevealLayout" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.RecordVideoSave" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
+            android:screenOrientation="sensor" >
+        </activity>
     </application>
 
 </manifest>

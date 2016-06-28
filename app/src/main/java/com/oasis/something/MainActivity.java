@@ -20,6 +20,7 @@ import com.oasis.something.bean.FuctionBean;
 import com.oasis.something.ui.CustomDialogToast;
 import com.oasis.something.ui.ManyButton;
 import com.oasis.something.ui.ObserverScrollViewSample;
+import com.oasis.something.ui.RecordVideoSave;
 import com.oasis.something.ui.RevealLayout;
 import com.oasis.something.ui.SVG;
 import com.oasis.something.ui.Vector;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity{
         mList.add(new FuctionBean("SVG", SVG.class)) ;
         mList.add(new FuctionBean("Vector", Vector.class)) ;
         mList.add(new FuctionBean("RevealLayout", RevealLayout.class)) ;
+        mList.add(new FuctionBean("录制视频 压缩", RecordVideoSave.class)) ;
 
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;
