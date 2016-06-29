@@ -33,6 +33,7 @@
         <activity android:name=".ui.Vector" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.RevealLayout" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.RecordVideoSave" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.Weibo" android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
             android:screenOrientation="sensor" >

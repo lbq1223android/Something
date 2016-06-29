@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
-import android.os.PersistableBundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +23,12 @@ import com.oasis.something.ui.RecordVideoSave;
 import com.oasis.something.ui.RevealLayout;
 import com.oasis.something.ui.SVG;
 import com.oasis.something.ui.Vector;
+import com.oasis.something.ui.Weibo;
 import com.oasis.something.util.L;
 import com.orhanobut.logger.Logger;
 
 import org.xutils.common.Callback;
-import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
-import org.xutils.x;
 
 import java.util.ArrayList;
 
@@ -53,6 +51,7 @@ public class MainActivity extends BaseActivity{
         mList.add(new FuctionBean("Vector", Vector.class)) ;
         mList.add(new FuctionBean("RevealLayout", RevealLayout.class)) ;
         mList.add(new FuctionBean("录制视频 压缩", RecordVideoSave.class)) ;
+        mList.add(new FuctionBean("weibo tab", Weibo.class)) ;
 
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;

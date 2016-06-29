@@ -11,5 +11,9 @@
     <color name="google_blue">#4285F4</color>
     <color name="google_green">#34A853</color>
 
+    <color name="home_bar_text_normal">#6a6c6f</color>
+    <color name="home_bar_text_push">#ff5959</color>
+    <color name="textnormal">#adadad</color>
+
 
 </resources>
