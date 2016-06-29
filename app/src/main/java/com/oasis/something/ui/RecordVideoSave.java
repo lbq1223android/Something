@@ -13,6 +13,8 @@ import com.github.hiteshsondhi88.libffmpeg.LoadBinaryResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegNotSupportedException;
 import com.jmolsmobile.landscapevideocapture.VideoCaptureActivity;
+import com.jmolsmobile.landscapevideocapture.configuration.CaptureConfiguration;
+import com.jmolsmobile.landscapevideocapture.configuration.PredefinedCaptureConfigurations;
 import com.oasis.something.BaseActivity;
 import com.oasis.something.ProjectApplication;
 import com.oasis.something.R;
@@ -20,6 +22,8 @@ import com.oasis.something.util.L;
 
 import java.io.File;
 import java.io.IOException;
+
+import static com.jmolsmobile.landscapevideocapture.configuration.PredefinedCaptureConfigurations.*;
 
 /**
  * Created by liling on 2016/6/28.
@@ -38,8 +42,18 @@ public class RecordVideoSave extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RecordVideoSave.this, VideoCaptureActivity.class);
-               // intent.putExtra(VideoCaptureActivity.EXTRA_CAPTURE_CONFIGURATION, config);
-                intent.putExtra(VideoCaptureActivity.EXTRA_OUTPUT_FILENAME,"temp.3gp") ;
+
+
+                CaptureResolution resolution = CaptureResolution.RES_480P ;
+                CaptureQuality quality = CaptureQuality.MEDIUM ;
+                int fileDuration = CaptureConfiguration.NO_DURATION_LIMIT;
+                int filesize = CaptureConfiguration.NO_FILESIZE_LIMIT;
+                boolean showTimer = true ;
+                CaptureConfiguration config = new CaptureConfiguration(resolution, quality, fileDuration, filesize, showTimer);
+
+              //  intent.putExtra(VideoCaptureActivity.EXTRA_SHOW_TIMER,true) ;
+                intent.putExtra(VideoCaptureActivity.EXTRA_CAPTURE_CONFIGURATION, config);
+                intent.putExtra(VideoCaptureActivity.EXTRA_OUTPUT_FILENAME,"temp.mp4") ;
                 startActivityForResult(intent, RESULT_CODE);
                 }
         });
@@ -108,7 +122,7 @@ public class RecordVideoSave extends BaseActivity {
     public void compress(String filename){
         String VideoIn = filename ;
         String filePath = ProjectApplication.getInstance().getAppPath()+"Compressvideo/" ;
-        String VideoOut = filePath+"temp.3gp";
+        String VideoOut = filePath+"matemp.mp4";
 
         File file = new File(filePath) ;
         if(!file.exists()){
@@ -125,8 +139,8 @@ public class RecordVideoSave extends BaseActivity {
         }
 
         try {
-            String cmd = "-i "+VideoIn+" "+VideoOut;
-
+            String cmd = "-y -i "+VideoIn+" "+VideoOut;
+           // String cmd = "-i "+VideoIn;
             //String cmd = "-i "+VideoIn+" -s 1280*720 -aspect 1.77 "+VideoOut+"" ;
             //String cmd = "-y -i "+VideoIn+" -s 640x360 -vcodec libx264 -vpre -b 800000 "+VideoOut;
             //String cmd ="-i "+VideoIn+" -vcodec libx264 -maxrate 500k -bufsize 1000k -vf scale=-1:480 -threads 0 -f mp4 "+VideoOut;
