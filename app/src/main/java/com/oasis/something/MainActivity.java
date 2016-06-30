@@ -19,6 +19,10 @@ import com.oasis.something.bean.FuctionBean;
 import com.oasis.something.ui.CustomDialogToast;
 import com.oasis.something.ui.ManyButton;
 import com.oasis.something.ui.ObserverScrollViewSample;
+import com.oasis.something.ui.Pubu;
+import com.oasis.something.ui.PubuTwo;
+import com.oasis.something.ui.PubuWithScroll;
+import com.oasis.something.ui.PubuWithScrollTwo;
 import com.oasis.something.ui.RecordVideoSave;
 import com.oasis.something.ui.RevealLayout;
 import com.oasis.something.ui.SVG;
@@ -52,6 +56,11 @@ public class MainActivity extends BaseActivity{
         mList.add(new FuctionBean("RevealLayout", RevealLayout.class)) ;
         mList.add(new FuctionBean("录制视频 压缩", RecordVideoSave.class)) ;
         mList.add(new FuctionBean("weibo tab", Weibo.class)) ;
+        mList.add(new FuctionBean("瀑布流", Pubu.class)) ;
+        mList.add(new FuctionBean("瀑布流2", PubuTwo.class)) ;
+        mList.add(new FuctionBean("瀑布流3", PubuWithScroll.class)) ;
+        mList.add(new FuctionBean("瀑布流4", PubuWithScrollTwo.class)) ;
+
 
 
         RequestParams requestParams = new RequestParams("http://101.200.234.105/api/v1/android/get_filter_list") ;

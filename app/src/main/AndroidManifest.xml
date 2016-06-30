@@ -34,6 +34,10 @@
         <activity android:name=".ui.RevealLayout" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.RecordVideoSave" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.Weibo" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.Pubu" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.PubuTwo" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.PubuWithScroll" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.PubuWithScrollTwo" android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
             android:screenOrientation="sensor" >

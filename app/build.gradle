@@ -40,4 +40,6 @@ dependencies {
     compile 'com.writingminds:FFmpegAndroid:0.3.2'
     compile 'homhomlin.lib:apsts:1.4.0'
     compile files('E:/androidstudio-workspace-20151120/Something/libs/android-viewbadger.jar')
+    compile project(path: ':pubu')
+    compile 'com.etsy.android.grid:library:1.0.5'
 }
